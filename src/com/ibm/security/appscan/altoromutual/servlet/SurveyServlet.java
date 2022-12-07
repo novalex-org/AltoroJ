@@ -25,6 +25,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 /**
  * Servlet implementation class SurveyServlet
  * @author Alexei
@@ -98,7 +100,7 @@ public class SurveyServlet extends HttpServlet {
 			request.getSession().setAttribute("surveyStep", step);
 		}
 		response.setContentType("text/html");
-		response.getWriter().write(content);
+		response.getWriter().write(StringEscapeUtils.escapeHtml(content));
 		response.getWriter().flush();
 		
 	}
